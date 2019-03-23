@@ -1,0 +1,11 @@
+[workspace]
+
+members = [
+  ".git-hooks",
+  "afl_mutator",
+  "antlr_parser",
+  "forksrv",
+  "grammartec",
+  "gramophone",
+  "gramfuzz_mrusty",
+]

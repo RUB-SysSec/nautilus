@@ -1,0 +1,21 @@
+[package]
+name = "forksrv"
+version = "0.1.0"
+authors = ["coco <coco@hexgolems.com>"]
+
+[dependencies]
+nix = "0.8.0"
+time = "0.1"
+subprocess = "0.1.10"
+regex = "0.2"
+lazy_static = "*"
+libc = "*"
+quick-error = "*"
+tempfile = "*"
+rand = "^0.3"
+serde_derive = "1.0"
+serde = "1.0"
+
+[[bin]]
+name = "main"
+path = "src/main.rs"

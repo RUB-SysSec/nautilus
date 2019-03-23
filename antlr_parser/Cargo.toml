@@ -1,0 +1,13 @@
+[package]
+name = "antlr_parser"
+version = "0.1.0"
+authors = ["Daniel Teuchert <daniel.teuchert@rub.de>"]
+
+ [[bin]]
+ name = "antrl_parser"
+ path = "src/bin.rs"
+
+[dependencies]
+serde = "1.0"
+serde_json = "1.0"
+serde_yaml = "0.7"

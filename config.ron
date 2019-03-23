@@ -1,0 +1,26 @@
+Config(
+	//Thread Settings:
+	number_of_threads:					1,
+	thread_size: 						4194304,
+	save_thread_size: 					4194304,
+	
+	//Mutation Settings
+	number_of_generate_inputs:			100,		//see main.rs fuzzing_thread 
+	max_tree_size:						1000, 		//see state.rs generate random
+	bitmap_size:						32768, 		//1<<15
+	number_of_deterministic_mutations:	1,			//see main.rs process_input
+	
+	//File Paths
+	path_to_bin_target:                                     "/data/projects/grammar_fuzz/gramophone/forksrv/instrument/mruby/bin/mruby",
+	path_to_grammar:                                        "/data/projects/grammar_fuzz/gramophone/antlr_parser/src/ruby_custom.json",
+	path_to_workdir:                                        "/data/projects/grammar_fuzz/gramophone",
+	arguments: 							["@@"],		//"@@" will be exchanged with the path of a file containing the current input
+	
+	//Save Settings
+	save_intervall:						3600,		//60*60
+	save_state:							true,
+
+	//Fuzzing Mode		
+	no_feedback_mode:					false,		//When true the fuzzer only uses the generation method and no mutations
+	dump_mode:							false,		//When true the fuzzer saves every input that is tested (up to a maximum of 5000 and then cycling)
+)

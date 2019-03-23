@@ -1,0 +1,25 @@
+#!/usr/bin/env ruby
+
+$scriptpath = File.expand_path(File.dirname(__FILE__))
+$name = File.basename($scriptpath)
+
+def build
+  docker_name= "ruby-fuzzer"
+  system("cargo","build","--release") && system("docker", "build", "-t", docker_name, ".")
+end
+
+def run
+  docker_name= "ruby-fuzzer"
+  return system("docker",
+    "run", "-ti", "--rm",
+    "-v", "#$scriptpath/outputs:/home/fuzzer/outputs",
+    docker_name
+  )
+end
+
+def build_and_run()
+  return unless build()
+  run()
+end
+
+build_and_run()

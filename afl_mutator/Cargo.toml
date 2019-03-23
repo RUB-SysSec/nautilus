@@ -1,0 +1,8 @@
+[package]
+name = "afl_mutator"
+version = "0.1.0"
+authors = ["pnoltof <daniel.teuchert@rub.de>"]
+
+[dependencies]
+byteorder = "1.0.0"
+rand = "^0.3"

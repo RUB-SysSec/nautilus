@@ -1,0 +1,16 @@
+[package]
+name = "grammartec"
+version = "0.1.0"
+authors = ["coco <coco@hexgolems.com>"]
+
+[dependencies]
+regex = "0.2"
+lazy_static= "*"
+rand = "^0.3"
+hash_by_ref = "0.1.0"
+afl_mutator = {path = "../afl_mutator"}
+forksrv = {path = "../forksrv"}
+serde_derive = "1.0"
+serde = "1.0"
+loaded_dice = "*"
+num = "*"

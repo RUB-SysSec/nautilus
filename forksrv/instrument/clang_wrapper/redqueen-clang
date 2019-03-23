@@ -1,0 +1,62 @@
+#!/usr/bin/env ruby
+
+$c_mode = __FILE__ !~ /clang\+\+/
+$cpp_mode = __FILE__ =~ /clang\+\+/
+$scriptdir = File.dirname(__FILE__)
+
+# you can add files that should not be instrumented here:
+$do_not_instrument = [] # e.g. [/malloc.c\Z/, /mymath.c\Z/, /printf.c\Z/, /stdlib.c\Z/, /]libcgc.c\Z/, /aes.c\Z/, /pov\.dir/, /cgc\.dir/]
+
+$bits = "" 
+$bits = "_32" if ARGV.include?("-m32")
+$bits = "_64" if ARGV.include?("-m64")
+
+$runtime = [File.realpath("../rt/common#$bits.o", $scriptdir)]
+$afl_pass = ["-Xclang","-load","-Xclang",File.realpath("afl-llvm-pass.so", $scriptdir)]
+$optimize  = ["-ggdb3", "-O3", "-funroll-loops"]
+$optimize += ["-fsanitize=address", "-fno-omit-frame-pointer"]
+
+$maybe_linking = true
+
+args = ARGV
+newargs = []
+newargs << "-Qunused-arguments"
+
+if(!args.any?{|arg| $do_not_instrument.any?{|m| arg=~m}})
+  newargs += $afl_pass
+else
+  puts "DO NOT INSTRUMENT"
+end
+
+$maybe_linking = false if args == ["-v"]
+
+args.each do |arg|
+  case arg
+  when "-x" then raise "wtf does x do anyway?"
+  when "-c", "-S", "-E" then $maybe_linking = false
+  when "-shared" then $maybe_linking = false
+  when "-Wl,-z,defs", "-Wl,--no-undefined" then next
+  end
+  newargs << arg
+end 
+newargs += $optimize
+newargs << "-DREDQUEEN_FUZZER=1"
+if $maybe_linking
+  newargs += $runtime
+end
+puts ""
+puts ""
+puts ""
+puts "==================================================== "
+puts "linking: #{$maybe_linking}"
+puts "running #{args.join(" ")}\n =>\n #{newargs.join(" ")}"
+
+puts "==================================================== "
+puts ""
+puts ""
+puts ""
+compiler = "clang"
+compiler = "clang++" if __FILE__=~/clang\+\+/
+
+Kernel.exec(compiler,*newargs)
+puts "something went wrong, please check that you have clang in your path"
