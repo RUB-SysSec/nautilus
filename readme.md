@@ -3,10 +3,8 @@
 # set workdir path
 export WORKDIR="$(pwd)/gramophone"
 
-# checkout the git for darmstadt:
-git clone 'https://redmine.trust.cased.de/git/gramfuzz_gramophone' --recurse-submodules "$WORKDIR"
-#or for rub students:
-git clone 'git@git.noc.ruhr-uni-bochum.de:SysSec-Projects/gramophone_main.git' --recurse-submodules "$WORKDIR"
+# checkout the git:
+git clone 'https://github.com/RUB-SysSec/nautilus.git'
 
 # clang instrument wrapper
 cd "$WORKDIR/forksrv/instrument/rt"
