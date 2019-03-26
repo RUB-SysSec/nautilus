@@ -1,7 +1,7 @@
 ## Setup
 ```bash
 # set workdir path
-export WORKDIR="$(pwd)/gramophone"
+export WORKDIR="$(pwd)/nautilus"
 
 # checkout the git:
 git clone 'https://github.com/RUB-SysSec/nautilus.git'
