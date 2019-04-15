@@ -33,7 +33,9 @@ cd "$WORKDIR/forksrv/instrument/mruby"
     sudo apt install ruby bison # if needed
     CC="$WORKDIR/forksrv/instrument/clang_wrapper/redqueen-clang" LD="$WORKDIR/forksrv/instrument/clang_wrapper/redqueen-clang" make
 cd "$WORKDIR"
+
 #update paths in config.ron
 mkdir $WORKDIR/outputs/queue # if your workdir in the config is $WORKDIR, otherwise the fuzzer will crash because the queue is not found
-		cargo run -p gramophone --release --bin fuzzer 
+
+cargo run -p gramophone --release --bin fuzzer 
 ```
