@@ -1,3 +1,17 @@
+# Nautilus
+<p>
+<a href="https://www.syssec.ruhr-uni-bochum.de/media/emma/veroeffentlichungen/2018/12/17/NDSS19-Nautilus.pdf"> <img align="right" width="200"  src="https://github.com/RUB-SysSec/nautilus/raw/master/paper.png"> </a>
+
+Nautilus is a feedback fuzzer inspired by AFL. However it allows to specify a grammar. Using this grammar, the fuzzer generates and internally uses the abstract syntax tree of the input. This also allows for very complex mutations. Then it converts the tree to the actual input.
+
+
+<img width="400" align="center" src="https://github.com/RUB-SysSec/nautilus/raw/master/tree.png">
+
+Knowing the exact tree shape greatly improves the performance for highly structured input formats, such as many text formats and programming languages. 
+
+</p>
+ 
+
 ## Setup
 ```bash
 # set workdir path
