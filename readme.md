@@ -35,7 +35,9 @@ cd "$WORKDIR/forksrv/instrument/mruby"
 cd "$WORKDIR"
 
 #update paths in config.ron
-mkdir $WORKDIR/outputs/queue # if your workdir in the config is $WORKDIR, otherwise the fuzzer will crash because the queue is not found
+mkdir -p $WORKDIR/outputs/queue # if your workdir in the config is $WORKDIR, otherwise the fuzzer will crash because the queue is not found
+
+#fix the paths in config.ron (line 14 to 16)
 
 cargo run -p gramophone --release --bin fuzzer 
 ```
