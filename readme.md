@@ -41,3 +41,9 @@ mkdir -p $WORKDIR/outputs/queue # if your workdir in the config is $WORKDIR, oth
 
 cargo run -p gramophone --release --bin fuzzer 
 ```
+## Dockerfile
+
+- Apply the patch to the config file like so `git apply config-ron.patch`
+- Build the Dockerfile using the command `docker build . -t "nautilus:latest"`
+- Run the dockerfile : `docker run -it nautilus:latest /bin/bash`
+- Inside the docker image you can now run the same command `cargo run -p gramophone --release --bin fuzzer`
