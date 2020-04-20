@@ -1,4 +1,7 @@
 # Nautilus
+
+*NOTE: THIS IS AN OUTDATE REPOSITORY, THE CURRENT RELEASE IS AVAILABLE [HERE](https://github.com/nautilus-fuzz/nautilus). THIS REPO ONLY SERVES AS A REFERENCE FOR THE PAPER*
+
 <p>
 <a href="https://www.syssec.ruhr-uni-bochum.de/media/emma/veroeffentlichungen/2018/12/17/NDSS19-Nautilus.pdf"> <img align="right" width="200"  src="https://github.com/RUB-SysSec/nautilus/raw/master/paper.png"> </a>
 
