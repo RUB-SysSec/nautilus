@@ -1,0 +1,17 @@
+diff --git a/config.ron b/config.ron
+index 6427064..090e5a5 100644
+--- a/config.ron
++++ b/config.ron
+@@ -11,9 +11,9 @@ Config(
+ 	number_of_deterministic_mutations:	1,			//see main.rs process_input
+ 	
+ 	//File Paths
+-	path_to_bin_target:                                     "/data/projects/grammar_fuzz/gramophone/forksrv/instrument/mruby/bin/mruby",
+-	path_to_grammar:                                        "/data/projects/grammar_fuzz/gramophone/antlr_parser/src/ruby_custom.json",
+-	path_to_workdir:                                        "/data/projects/grammar_fuzz/gramophone",
++	path_to_bin_target:                                     "/root/nautilus/forksrv/instrument/mruby/bin/mruby",
++	path_to_grammar:                                        "/root/nautilus/antlr_parser/src/ruby_custom.json",
++	path_to_workdir:                                        "/root/nautilus/gramophone",
+ 	arguments: 							["@@"],		//"@@" will be exchanged with the path of a file containing the current input
+ 	
+ 	//Save Settings
